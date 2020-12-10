@@ -6,6 +6,8 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Resources\ProviderCollection;
 use App\Models\Provider;
 
+use App\Http\Controllers\API\AdController;
+
 /*
 |--------------------------------------------------------------------------
 | API Routes
@@ -24,3 +26,5 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 Route::get('/providers',  function () {
     return new ProviderCollection(Provider::all());   
 });
+
+Route::apiResource('ad', AdController::class);

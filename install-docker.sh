@@ -25,3 +25,11 @@ sudo wget --output-document=/usr/local/bin/docker-compose "https://github.com/do
 sudo chmod +x /usr/local/bin/docker-compose
 sudo wget --output-document=/etc/bash_completion.d/docker-compose "https://raw.githubusercontent.com/docker/compose/$(docker-compose version --short)/contrib/completion/bash/docker-compose"
 printf '\nDocker Compose installed successfully\n\n'
+
+
+sudo service docker start
+alias sail='bash vendor/bin/sail'
+sail up -d
+sail php artisan migrate
+sail php artisan db:seed
+sail php artisan storage:link
